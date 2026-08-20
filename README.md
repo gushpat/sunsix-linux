@@ -1,7 +1,7 @@
 # 🐧 Sunsix Linux — OEM Edition
 
 <p align="center">
-  <img src="assets/sunsix-logo.png" alt="Sunsix Linux" width="180">
+  <img src="assets/images/sunsixos.webp" alt="Sunsix Linux" width="180">
 </p>
 
 <p align="center">
