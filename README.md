@@ -633,6 +633,6 @@ Talvez você ainda tenha o CD original em uma gaveta.
 </p>
 
 <p align="center">
-  <strong>🐧 Sunsix Linux</strong><br>
+  <strong></strong>
   <sub>Uma pequena parte da história do Linux no Brasil.</sub>
 </p>
