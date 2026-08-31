@@ -65,7 +65,7 @@ sunsix-linux.iso
 ### Integridade
 
 ```text
-SHA-256: A CONFIRMAR
+SHA-256: 859a058aaffb378d7a01c6420ac81a9d81f983967e4b880a7c3eb1301280b388
 ```
 
 > 💡 Se você possui outra mídia do Sunsix Linux e obtiver um checksum diferente, **não descarte a cópia**. Ela pode representar uma versão ou revisão diferente e ser importante para a preservação.
