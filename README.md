@@ -81,9 +81,9 @@ O Sunsix Linux faz parte desse período.
 A distribuição foi associada a computadores de entrada e domésticos vendidos durante uma época marcada por:
 
 * Windows XP;
-* processadores Intel Celeron e Core 2 Duo;
-* memória DDR2;
-* discos rígidos SATA;
+* Processadores Intel Celeron, Intel Pentium e Intel Core 2 Duo;
+* Memória DDR2;
+* Discos Rígidos SATA;
 * monitores LCD;
 * CDs de instalação e recuperação;
 * expansão do acesso a computadores domésticos.
@@ -255,7 +255,7 @@ A ISO é distribuída através da seção **Releases**, mantendo o repositório 
 
 | Item                     | Estado             |
 | ------------------------ | ------------------ |
-| 💿 ISO original          | ✅ Preservada       |
+| 💿 ISO original (CD AZUL)          | ✅ Preservada       |
 | ⚙️ Arquitetura           | ✅ Identificada     |
 | 🖥️ Ambiente virtual     | ✅ Testável         |
 | 🐧 QEMU                  | ✅ Testável         |
@@ -265,8 +265,8 @@ A ISO é distribuída através da seção **Releases**, mantendo o repositório 
 | 🎨 Customizações OEM     | 🔄 Em investigação |
 | 🖥️ Hardware original    | 🔄 Em investigação |
 | 📖 Documentação original | 🔍 Procurando      |
-| 💿 Mídias alternativas   | 🔍 Procurando      |
-| 🔐 SHA-256               | 🔄 A confirmar     |
+| 💿 ISO drivers e extras (CD LARANJA)   | 🔍 Procurando      |
+| 🔐 SHA-256               | ✅ Confirmado     |
 
 ---
 
