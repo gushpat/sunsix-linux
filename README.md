@@ -53,14 +53,15 @@ A ISO preservada corresponde a uma mídia original do sistema e representa um ex
 
 ## 📦 ISO Preservada
 
-A imagem original está disponível através das **Releases** do projeto.
+Em breve, a imagem original estará disponível através das **Releases** do projeto.
 
+<!--
 **[⬇️ Baixar o Sunsix Linux](../../releases)**
 
 ```text
 sunsix-linux.iso
 ```
-
+-->
 ### Integridade
 
 ```text
@@ -216,6 +217,7 @@ Capturas do ambiente original serão adicionadas conforme a documentação avan�
 *Desktop do Sunsix Linux — captura pendente de documentação.*
 
 ---
+<!-- Este texto ou código não será renderizado 
 
 ## 🗂️ Estrutura
 
@@ -248,7 +250,7 @@ sunsix-linux/
 A ISO é distribuída através da seção **Releases**, mantendo o repositório principal dedicado à documentação e preservação.
 
 ---
-
+-->
 ## 🔬 Estado da Preservação
 
 | Item                     | Estado             |
