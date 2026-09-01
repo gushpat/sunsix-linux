@@ -41,8 +41,8 @@ A ISO preservada corresponde a uma mídia original do sistema e representa um ex
 | 🇧🇷 **Origem**         | Brasil                       |
 | 📅 **Período estimado** | 2007–2008                    |
 | 💿 **Mídia**            | CD-ROM                       |
-| 🧬 **Base**             | Ubuntu 7.x                   |
-| 🖥️ **Desktop**         | GNOME 2.x                    |
+| 🧬 **Base**             | Ubuntu 7.04 Feisty Fawn      |
+| 🖥️ **Desktop**         | GNOME 2.18                    |
 | ⚙️ **Arquitetura**      | i386 / 32-bit                |
 | 📦 **Gerenciador**      | APT / dpkg                   |
 | 🔬 **Status**           | Preservado e em investigação |
@@ -97,8 +97,9 @@ O objetivo deste projeto é preservar **não apenas a ISO**, mas também o conte
 Até o momento, a análise da mídia e das evidências disponíveis indica:
 
 * Arquitetura **i386 / x86 32-bit**;
-* Ambiente baseado na geração **Ubuntu 7.x**;
-* Desktop baseado no **GNOME 2.x**;
+* Ambiente baseado na geração **Ubuntu 7.04 Feisty Fawn**;
+* Desktop baseado no **GNOME 2.18**;
+* Versão do Kernel: **2.6.20**
 * Sistema de pacotes **APT / dpkg**;
 * Personalizações visuais relacionadas à marca Sunsix;
 * Distribuição em mídia **CD-ROM**;
@@ -112,8 +113,6 @@ A investigação continua.
 
 Algumas perguntas permanecem abertas:
 
-* Qual é a versão exata do Ubuntu?
-* Qual é a versão exata do kernel?
 * Quando a ISO foi criada?
 * Quem desenvolveu a customização?
 * Quais componentes foram modificados pela Sunsix?
