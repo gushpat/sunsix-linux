@@ -41,8 +41,8 @@ A ISO preservada corresponde a uma mídia original do sistema e representa um ex
 | 🇧🇷 **Origem**         | Brasil                       |
 | 📅 **Período estimado** | 2007–2008                    |
 | 💿 **Mídia**            | CD-ROM                       |
-| 🧬 **Base**             | Ubuntu 7.x                   |
-| 🖥️ **Desktop**         | GNOME 2.x                    |
+| 🧬 **Base**             | Ubuntu 7.04 Feisty Fawn      |
+| 🖥️ **Desktop**         | GNOME 2.18                    |
 | ⚙️ **Arquitetura**      | i386 / 32-bit                |
 | 📦 **Gerenciador**      | APT / dpkg                   |
 | 🔬 **Status**           | Preservado e em investigação |
