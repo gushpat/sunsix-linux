@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  Uma distribuição Linux OEM brasileira da era do Windows XP.
+  Uma distribuição Linux OEM brasileira preservada como parte da história da computação nacional.
 </p>
 
 <p align="center">
@@ -33,10 +33,9 @@ A ISO preservada corresponde a uma mídia original do sistema e representa um ex
 
 ---
 
-## 📋 At a Glance
-
-|                         |                              |
-| ----------------------- | ---------------------------- |
+## 📋 Em Resumo
+|                      |             |
+| ------------------------ | ------------------ |
 | 🐧 **Sistema**          | Sunsix Linux                 |
 | 🇧🇷 **Origem**         | Brasil                       |
 | 📅 **Período estimado** | 2007–2008                    |
@@ -127,81 +126,13 @@ Algumas perguntas permanecem abertas:
 
 ---
 
-## 🧪 Evidências e Nível de Confiança
-
-Para evitar que hipóteses sejam confundidas com fatos, o projeto utiliza diferentes níveis de evidência:
-
-| Símbolo | Significado                                                |
-| ------- | ---------------------------------------------------------- |
-| 🟢      | Confirmado diretamente pela mídia ou documentação primária |
-| 🟡      | Provável, baseado em múltiplas evidências                  |
-| 🔵      | Relato ou informação histórica de terceiros                |
-| 🔴      | Ainda desconhecido                                         |
-
-A documentação detalhada das evidências e descobertas será mantida em [`docs/`](docs/).
-
----
-
 ## 🖥️ Executando o Sunsix Linux
 
 Devido à idade do sistema, a maneira mais simples de experimentá-lo atualmente é através de **virtualização ou emulação de hardware x86 antigo**.
 
-### QEMU
+⚠️ Compatibilidade: o sistema foi desenvolvido para hardware x86 da época. Computadores modernos podem apresentar incompatibilidades. Recomendamos QEMU ou VirtualBox.
 
-Uma execução básica da ISO:
-
-```bash
-qemu-system-i386 \
-  -m 512M \
-  -cdrom sunsix-linux.iso \
-  -boot d
-```
-
-Para aproximar o ambiente de computadores antigos:
-
-```bash
-qemu-system-i386 \
-  -m 512M \
-  -cpu pentium3 \
-  -cdrom sunsix-linux.iso \
-  -boot d
-```
-
-### VirtualBox
-
-Configuração recomendada:
-
-| Configuração   | Valor            |
-| -------------- | ---------------- |
-| Sistema        | Linux            |
-| Arquitetura    | 32 bits          |
-| RAM            | 512 MB – 1024 MB |
-| CPU            | 1 núcleo         |
-| Armazenamento  | IDE              |
-| Firmware       | BIOS / Legacy    |
-| Unidade óptica | CD/DVD           |
-
-📚 **Guias detalhados:** [`docs/`](docs/)
-
----
-
-## ⚠️ Compatibilidade
-
-O Sunsix Linux utiliza software desenvolvido para computadores de aproximadamente duas décadas atrás.
-
-Hardware moderno pode apresentar problemas relacionados a:
-
-* UEFI;
-* Secure Boot;
-* USB 3.x;
-* GPUs modernas;
-* controladoras de armazenamento;
-* chipsets recentes;
-* CPUs posteriores à geração suportada pelo kernel.
-
-Problemas específicos de inicialização e compatibilidade estão documentados em:
-
-[`docs/troubleshooting.md`](docs/troubleshooting.md)
+📚 **Guias detalhados:** [`docs/troubleshooting.md`](docs/troubleshooting.md)
 
 ---
 
@@ -216,40 +147,9 @@ Capturas do ambiente original serão adicionadas conforme a documentação avan�
 *Desktop do Sunsix Linux — captura pendente de documentação.*
 
 ---
-<!-- Este texto ou código não será renderizado 
 
-## 🗂️ Estrutura
 
-```text
-sunsix-linux/
-├── README.md
-├── LICENSE
-├── SHA256SUMS
-│
-├── assets/
-│   └── images/
-│       └── sunsixos.webp
-│
-├── screenshots/
-│   ├── boot.png
-│   ├── desktop.png
-│   └── system-info.png
-│
-├── docs/
-│   ├── history.md
-│   ├── hardware.md
-│   ├── technical-analysis.md
-│   ├── troubleshooting.md
-│   └── preservation.md
-│
-└── metadata/
-    └── iso-info.txt
-```
 
-A ISO é distribuída através da seção **Releases**, mantendo o repositório principal dedicado à documentação e preservação.
-
----
--->
 ## 🔬 Estado da Preservação
 
 | Item                     | Estado             |
@@ -283,52 +183,20 @@ A investigação detalhada está sendo organizada separadamente:
 
 ## 🤝 Ajude a Preservar
 
-Você possui alguma lembrança ou material relacionado ao Sunsix?
+Você possui algum material relacionado ao Sunsix?
 
-Talvez ainda tenha:
+Estamos procurando especialmente:
 
-* 💿 Um CD original;
-* 💻 Um computador Sunsix;
-* 📦 A caixa;
-* 📖 Um manual;
-* 📸 Fotografias;
-* 💾 Drivers;
-* 💿 CDs de recuperação;
-* 📝 Documentos;
-* 🧠 Relatos de utilização;
-* 🖥️ Outra versão da ISO.
+- 💿 CDs originais;
+- 💻 Computadores Sunsix;
+- 📖 Manuais e documentação;
+- 📸 Fotografias;
+- 💾 Drivers e CDs de recuperação;
+- 📝 Relatos de quem utilizou o sistema.
 
-**Não descarte esse material.**
+Abra uma Issue ou envie uma contribuição para o projeto.
 
-Mesmo uma fotografia ou pequeno relato pode fornecer uma pista importante.
-
-### Como contribuir
-
-Você pode:
-
-1. Abrir uma **Issue**;
-2. Enviar fotografias ou documentação;
-3. Relatar testes realizados em hardware real;
-4. Comparar outra mídia com a ISO preservada;
-5. Enviar Pull Requests com documentação;
-6. Informar sobre computadores Sunsix encontrados;
-7. Compartilhar outras cópias da mídia.
-
-> 🔎 Ao encontrar outra ISO, registre primeiro **origem, tamanho e checksum**. Não substitua ou descarte a cópia existente.
-
----
-
-## 🏛️ Por Que Preservar?
-
-Software OEM costuma desaparecer sem deixar muitos registros.
-
-Empresas encerram atividades, sites ficam offline, servidores são desligados e CDs acabam sendo descartados.
-
-Grandes distribuições possuem comunidades e arquivos históricos. Já sistemas personalizados por fabricantes podem desaparecer quase completamente.
-
-O Sunsix Linux é um exemplo desse tipo de software.
-
-Preservá-lo significa preservar uma pequena parte da história de como **o Linux chegou aos computadores domésticos brasileiros**.
+> 🔎 Se você encontrar outra ISO, registre sua origem, tamanho e checksum antes de qualquer alteração.
 
 ---
 
