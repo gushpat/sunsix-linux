@@ -1,152 +1,470 @@
+# 🔬 Sunsix Linux — Dossiê Técnico de Preservação
 
-Sunsix Linux — Análise Técnica e Estado da Pesquisa
-Documento consolidado para o projeto de preservação digital
-1. Objetivo e escopo
-Este documento consolida, em um único registro, o conhecimento técnico e histórico reunido até o momento
-sobre o Sunsix Linux. O objetivo é documentar a mídia preservada, identificar sua base de software,
-compreender sua arquitetura e localizar as possíveis camadas de customização OEM, sem alterar ou
-reconstruir o sistema. Evidências observadas diretamente na ISO devem ser distinguidas de conclusões
-obtidas por comparação histórica.
-O projeto associado ao estudo é um projeto de preservação digital, e não uma tentativa de criar uma nova
-distribuição Linux.
-2. Projeto de preservação
-O repositório público gushpat/sunsix-linux registra o Sunsix Linux como uma distribuição GNU/Linux brasileira
-associada a computadores OEM Sunsix comercializados no Brasil na segunda metade dos anos 2000. O
-repositório organiza a pesquisa em história, hardware, preservação, análise técnica e troubleshooting.
-Repositório: https://github.com/gushpat/sunsix-linux
-3. Identificação consolidada do sistema
-Item Informação atual
-Nome Sunsix Linux
-Origem Brasil
-Período estimado 2007–2008
-Mídia CD-ROM
-Base Ubuntu 7.04 Feisty Fawn
-Arquitetura i386 / x86 32-bit
-Desktop GNOME 2.18
-Kernel Linux 2.6.20; evidências do ambiente indicam série 2.6.20-15
-Pacotes APT / dpkg
-Live system Arquitetura Ubuntu baseada em casper
-Instalação Ubiquity / instalador gráfico do Ubuntu
-Estado Preservado e em investigação
-4. Integridade da mídia preservada
-Checksum SHA-256 registrado para a ISO preservada:
-859a058aaffb378d7a01c6420ac81a9d81f983967e4b880a7c3eb1301280b388.
-O checksum deve ser tratado como identificador da cópia atualmente preservada. Uma mídia diferente com
-checksum diferente não deve ser descartada: pode representar outra revisão, imagem ou lote de distribuição.
-5. Evidências sobre a base Ubuntu
-A identificação como Ubuntu 7.04 Feisty Fawn é coerente com a estrutura e os componentes observados na
-mídia analisada: casper, Ubiquity, APT/dpkg, kernel da série 2.6.20, ambiente GNOME da geração 2.18 e
-conjunto de pacotes característico do Feisty.
-Documentação histórica do próprio Ubuntu confirma que o Feisty utilizava Linux 2.6.20, GNOME 2.18,
-OpenOffice.org 2.2 e X.Org 7.2. A documentação histórica também identifica o Desktop CD i386 como a
-mídia destinada aos PCs x86 comuns.
-6. O que a análise do manifesto de pacotes já indica
-O inventário de pacotes analisado anteriormente apresenta um sistema fortemente baseado no Ubuntu
-Feisty, sem uma quantidade evidente de pacotes cujo nome contenha 'sunsix'. Isso é importante: a ausência
-de nomes de pacotes com a marca não significa ausência de customização OEM.
-Foram observados componentes e versões compatíveis com a época, incluindo Firefox 2.0.0.x,
-OpenOffice.org da geração 2.2, componentes de Flash da época, pacotes de idioma e atualizações do Feisty.
-Alguns pacotes como smartdimmer e toshset aparecem no inventário, mas não devem ser classificados como
-software Sunsix sem comparação com uma instalação Ubuntu Feisty original.
-A hipótese atual mais forte é que a customização Sunsix tenha sido majoritariamente realizada por
-configuração, artwork, seleção de pacotes, arquivos de inicialização e ajustes do ambiente, em vez de uma
-grande coleção de pacotes próprios.
-7. Por que a busca por 'sunsix' nos nomes não foi
-suficiente
-A busca realizada com unsquashfs -l filesystem.squashfs | grep -i sunsix não encontrou
-resultados. Isso não constitui evidência de que o sistema não possua customizações Sunsix. OEMs podem
-substituir arquivos existentes, alterar configurações, instalar artwork em diretórios genéricos, modificar
-defaults do GNOME, alterar o GDM, o usplash ou o instalador, e até incorporar mudanças dentro de scripts
-sem inserir a marca no nome do arquivo.
-8. Camadas onde a customização deve ser procurada
-Camada Locais/elementos relevantes
-ISO/boot isolinux/, arquivos de configuração, menu de boot, parâmetros, splash, volume ID, El Torito
-Live system casper/, filesystem.squashfs, initrd
-Identidade /etc/lsb-release, /etc/issue, /etc/issue.net, metadados e arquivos de identificação
-APT /etc/apt/sources.list, listas de pacotes, versões e repositórios
-Pacotes /var/lib/dpkg/status, /var/lib/dpkg/info/, .deb em pool/
-GNOME /etc/gconf/, defaults do desktop, menus e configurações
-GDM /etc/gdm/ e telas/configurações de login
-X.Org /etc/X11/ e arquivos de configuração de vídeo
-Artwork /usr/share/backgrounds/, pixmaps/, icons/, themes/, gnome-background-properties/
-Boot splash /usr/lib/usplash/, /etc/usplash.conf e componentes relacionados
-Ubiquity /usr/share/ubiquity/ e arquivos de interface/branding
-Scripts/OEM /opt/, /usr/local/, /etc/init.d/, scripts e executáveis incomuns
-Perfil padrão /etc/skel/, defaults do usuário, configurações GNOME
-9. Estrutura esperada da ISO
-A mídia deve ser tratada como uma cadeia de componentes: mídia ISO/El Torito → carregador de boot →
-kernel/initrd → casper → filesystem.squashfs → sistema de arquivos do ambiente live → Ubiquity →
-instalação no disco. Além disso, a própria ISO pode conter um repositório APT parcial em dists/ e pool/.
-O estudo deve registrar quais desses componentes são idênticos ou próximos ao Ubuntu Feisty original e
-quais apresentam alterações específicas do OEM.
-10. Modelo técnico do sistema
-Em termos arquiteturais, o Sunsix Linux deve ser entendido como uma distribuição OEM derivada de uma
-base Ubuntu, e não como um sistema operacional construído integralmente do zero. A camada inferior é o
-kernel Linux; acima dela ficam os componentes GNU/Linux e a infraestrutura Debian/Ubuntu de pacotes; a
-sessão gráfica é baseada no GNOME 2.18; o meio live utiliza casper; e a instalação em disco é feita pelo
-Ubiquity.
-Essa arquitetura explica por que uma análise de customização precisa olhar além dos nomes de arquivos: a
-maior parte da identidade do produto pode estar em configurações e arquivos substituídos dentro de
-componentes que continuam com nomes Ubuntu.
-11. Evidências históricas externas
-Há evidências históricas independentes de que computadores Sunsix eram comercializados no Brasil com
-Linux pré-instalado. Registros e anúncios de época associam máquinas Sunsix a processadores Intel e AMD,
-memória DDR2, discos SATA e software Linux. Discussões de usuários também associam explicitamente o
-'Linux Sunsix' a computadores da marca.
-Uma evidência particularmente relevante é o registro histórico de uma máquina Sunsix que teria vindo com
-Ubuntu Linux, além de relatos que identificam Ubuntu 7.04 Feisty em computadores Sunsix. Isso reforça a
-hipótese de que a mídia preservada seja uma customização OEM do Ubuntu.
-O Ubuntu 7.04 foi lançado em abril de 2007 e o suporte da versão terminou posteriormente; portanto, a
-presença de pacotes atualizados da série Feisty pode indicar uma imagem produzida algum tempo após o
-lançamento inicial.
-12. Estado atual da investigação
-Item Estado
-ISO original Preservada
-Checksum Confirmado
-Arquitetura Identificada como i386
-Base Identificada como Ubuntu 7.04 Feisty
-Desktop Identificado como GNOME 2.18
-Kernel Identificado como 2.6.20 / série 2.6.20-15
-Sistema de pacotes APT/dpkg
-Execução virtual Testável
-Lista de pacotes Em análise
-Customizações OEM Em investigação
-Hardware original Em investigação
-Documentação original Procurando
-CD de drivers/extras Procurando
-Data exata da ISO Não determinada
-Autor/desenvolvedor da customização Não determinado
-13. Perguntas de pesquisa ainda abertas
-• Qual a data exata de criação da ISO?
-• A imagem preservada corresponde ao primeiro release Sunsix ou a uma revisão posterior?
-• Quem produziu a customização OEM?
-• Quais arquivos foram modificados em relação ao Ubuntu 7.04 original?
-• Existem pacotes próprios da Sunsix com nomes neutros?
-• Existem scripts ou binários exclusivos?
-• Quais modelos de computadores Sunsix receberam essa mídia?
-• Existia mais de uma ISO?
-• O CD azul correspondia ao sistema e havia um CD laranja separado para drivers/extras?
-• Existem manuais, notas de instalação, adesivos, fotografias ou documentos originais?
-• Qual era o processo de distribuição da mídia junto aos computadores?
-• Quais temas, wallpapers, ícones, sons e configurações eram exclusivos?
-14. Metodologia recomendada para a análise
-1. Preservar a ISO original e registrar seu checksum antes de qualquer manipulação.
-2. Trabalhar sempre sobre cópias extraídas, mantendo a mídia original intacta.
-3. Inventariar a estrutura da ISO antes de extrair ou modificar conteúdo.
-4. Catalogar casper, kernel, initrd, bootloader e arquivos de configuração.
-5. Extrair o filesystem.squashfs para uma árvore de análise.
-6. Registrar versões e nomes de todos os pacotes instalados.
-7. Comparar o manifesto com uma imagem Ubuntu 7.04 i386 de referência.
-8. Pesquisar diferenças em /etc, /usr/share, /opt, /usr/local, GConf, GDM, X.Org e usplash.
-9. Examinar scripts de instalação e pós-instalação dos pacotes suspeitos.
-10. Separar cada descoberta em: evidência direta, evidência indireta ou hipótese.
-11. Registrar hashes e caminhos dos arquivos relevantes para permitir reprodução da pesquisa.
-15. Segurança e preservação
-O sistema é extremamente antigo e não deve ser utilizado como sistema operacional principal ou conectado
-diretamente à Internet. A experimentação deve ocorrer preferencialmente em máquina virtual, com rede
-desativada ou isolada e snapshots. O objetivo desta pesquisa é histórico e técnico.
-16. Fontes e referências principais
-• Repositório de preservação: https://github.com/gushpat/sunsix-linux
-• Ubuntu 7.04 — arquivo histórico de releases: https://old-releases.ubuntu.com/releases/7.04/
-• Ubuntu 7.04 Beta / informações técnicas históricas: https://ubuntu.com/blog/ubuntu-7-04-beta
-• Artigos históricos de instalação e uso do Ubuntu 7.04 em comuni
+> **Documento de investigação técnica da mídia preservada.**
+
+Este documento registra o conhecimento técnico obtido durante a análise do **Sunsix Linux**, uma distribuição GNU/Linux brasileira associada a computadores OEM Sunsix comercializados no Brasil durante a segunda metade dos anos 2000.
+
+O objetivo não é reconstruir ou modernizar o sistema, mas **preservar a mídia original, compreender sua arquitetura e identificar as modificações que transformaram uma base Ubuntu em um produto OEM da Sunsix**.
+
+---
+
+# 🧾 1. O Artefato Preservado
+
+A investigação parte de uma imagem ISO original preservada.
+
+| Propriedade       | Informação                   |
+| ----------------- | ---------------------------- |
+| Sistema           | Sunsix Linux                 |
+| Tipo              | Distribuição OEM             |
+| Origem            | Brasil                       |
+| Mídia             | CD-ROM                       |
+| Arquitetura       | i386 / x86 32-bit            |
+| Base identificada | Ubuntu 7.04 Feisty Fawn      |
+| Estado            | Preservado e em investigação |
+
+## Integridade
+
+O SHA-256 da cópia atualmente preservada é:
+
+```text
+859a058aaffb378d7a01c6420ac81a9d81f983967e4b880a7c3eb1301280b388
+```
+
+Esse checksum identifica especificamente a mídia analisada neste projeto.
+
+> ⚠️ Uma mídia diferente não deve ser descartada apenas porque possui outro checksum. Diferenças podem indicar outra revisão, lote ou versão do sistema.
+
+---
+
+# 🔬 2. Resultado Atual da Investigação
+
+## Identificação consolidada
+
+| Componente                      | Identificação atual            | Confiança                    |
+| ------------------------------- | ------------------------------ | ---------------------------- |
+| Sistema                         | Sunsix Linux                   | 🟢 Confirmado                |
+| Arquitetura                     | i386 / x86 32-bit              | 🟢 Confirmado                |
+| Base                            | Ubuntu 7.04 Feisty Fawn        | 🟢 Confirmado                |
+| Desktop                         | GNOME 2.18                     | 🟢 Confirmado                |
+| Kernel                          | Linux 2.6.20 / série 2.6.20-15 | 🟢 Confirmado                |
+| Pacotes                         | APT / dpkg                     | 🟢 Confirmado                |
+| Live System                     | Casper                         | 🟢 Confirmado                |
+| Instalador                      | Ubiquity                       | 🟢 Confirmado                |
+| Customização OEM                | Presente                       | 🟡 Investigação em andamento |
+| Principal forma de customização | Configuração e artwork         | 🟡 Hipótese forte            |
+| Autor da customização           | Desconhecido                   | 🔴 Não identificado          |
+| Data exata da ISO               | Desconhecida                   | 🔴 Não determinada           |
+
+---
+
+# 🟢 3. Como as Evidências São Classificadas
+
+Para evitar que hipóteses sejam confundidas com fatos, esta investigação utiliza quatro níveis de confiança.
+
+| Símbolo | Classificação    | Significado                                                               |
+| ------- | ---------------- | ------------------------------------------------------------------------- |
+| 🟢      | Confirmado       | Observado diretamente na mídia ou em evidência primária                   |
+| 🟡      | Inferência forte | Sustentado por múltiplas evidências, mas ainda não diretamente confirmado |
+| 🔵      | Relato histórico | Informação proveniente de terceiros ou documentação externa               |
+| 🔴      | Desconhecido     | Ainda não existe evidência suficiente                                     |
+
+---
+
+# 🏗️ 4. Anatomia do Sistema
+
+O Sunsix Linux não deve ser entendido como um sistema construído integralmente do zero.
+
+A arquitetura observada indica uma distribuição OEM baseada na infraestrutura do Ubuntu:
+
+```text
+Sunsix Linux
+│
+├── 💿 Mídia ISO
+│
+├── 🚀 Bootloader
+│
+├── 🐧 Kernel Linux 2.6.20
+│
+├── ⚙️ initrd
+│
+├── 💾 Casper
+│
+├── 📦 filesystem.squashfs
+│
+├── 🐧 Base Ubuntu 7.04
+│
+├── 🖥️ GNOME 2.18
+│
+├── 📦 APT / dpkg
+│
+└── 💿 Ubiquity
+    └── Instalação no disco
+```
+
+A investigação técnica procura determinar **quais partes dessa estrutura permanecem idênticas ao Ubuntu original e onde aparecem as alterações específicas da Sunsix**.
+
+---
+
+# 🟢 5. Evidências da Base Ubuntu
+
+A identificação da mídia como baseada no **Ubuntu 7.04 Feisty Fawn** é sustentada por múltiplas características observadas:
+
+* infraestrutura baseada em **Casper**;
+* instalador gráfico **Ubiquity**;
+* gerenciamento de pacotes através de **APT / dpkg**;
+* kernel da geração **Linux 2.6.20**;
+* ambiente gráfico da geração **GNOME 2.18**;
+* conjunto de pacotes compatível com o Ubuntu Feisty.
+
+A combinação desses elementos forma uma evidência consistente de que o Sunsix Linux foi construído a partir de uma base Ubuntu 7.04.
+
+---
+
+# 📦 6. O Inventário de Pacotes
+
+A análise do manifesto de pacotes revelou um sistema fortemente compatível com o ecossistema Ubuntu Feisty.
+
+Entre os componentes identificados estão versões compatíveis com a época de:
+
+* Firefox 2.0.0.x;
+* OpenOffice.org 2.2;
+* GNOME 2.18;
+* kernel Linux 2.6.20;
+* componentes Flash da época;
+* pacotes de idioma;
+* atualizações relacionadas à geração Feisty.
+
+Alguns pacotes incomuns também aparecem no inventário, incluindo componentes como:
+
+```text
+smartdimmer
+toshset
+```
+
+No entanto, a simples presença desses pacotes **não é evidência de que sejam software desenvolvido pela Sunsix**.
+
+A classificação correta exige comparação direta com uma mídia Ubuntu 7.04 i386 de referência.
+
+---
+
+# 🕵️ 7. Onde Está o Sunsix?
+
+Esta é atualmente a principal pergunta da investigação.
+
+A busca por arquivos contendo explicitamente o nome `sunsix` não encontrou resultados:
+
+```bash
+unsquashfs -l filesystem.squashfs | grep -i sunsix
+```
+
+Isso **não significa que a customização OEM esteja ausente**.
+
+Uma distribuição OEM pode modificar arquivos existentes sem alterar seus nomes.
+
+A identidade da Sunsix pode estar escondida em:
+
+```text
+SUNSIX LINUX
+│
+├── 🐧 Base Ubuntu 7.04
+│
+├── 🖥️ GNOME 2.18
+│
+├── 🐧 Kernel Linux
+│
+└── 🔍 Camada OEM Sunsix
+    │
+    ├── 🎨 Wallpapers
+    ├── 🖼️ Artwork
+    ├── 🎭 Temas GNOME
+    ├── 👤 Configurações de usuário
+    ├── 🔐 Tela de login
+    ├── 🚀 Boot splash
+    ├── ⚙️ Configurações padrão
+    ├── 📦 Seleção de pacotes
+    ├── 🛠️ Scripts OEM
+    └── 💿 Customização do instalador
+```
+
+A ausência da palavra "Sunsix" nos nomes dos arquivos não elimina nenhuma dessas possibilidades.
+
+---
+
+# 🔍 8. Áreas Sob Investigação
+
+A procura pela camada OEM deve examinar diferentes regiões do sistema.
+
+| Camada        | Locais relevantes                                           |
+| ------------- | ----------------------------------------------------------- |
+| ISO / Boot    | `isolinux/`, menu, parâmetros, splash, Volume ID, El Torito |
+| Live System   | `casper/`, `filesystem.squashfs`, `initrd`                  |
+| Identidade    | `/etc/lsb-release`, `/etc/issue`, `/etc/issue.net`          |
+| APT           | `/etc/apt/sources.list` e repositórios                      |
+| Pacotes       | `/var/lib/dpkg/status`, `/var/lib/dpkg/info/`               |
+| GNOME         | `/etc/gconf/`, menus e configurações                        |
+| GDM           | `/etc/gdm/` e recursos da tela de login                     |
+| X.Org         | `/etc/X11/`                                                 |
+| Artwork       | `/usr/share/backgrounds/`, `pixmaps/`, `icons/`, `themes/`  |
+| Boot Splash   | `/usr/lib/usplash/`, `/etc/usplash.conf`                    |
+| Ubiquity      | `/usr/share/ubiquity/`                                      |
+| Scripts OEM   | `/opt/`, `/usr/local/`, `/etc/init.d/`                      |
+| Perfil padrão | `/etc/skel/`                                                |
+
+Cada arquivo ou diretório diferente do Ubuntu original poderá representar uma possível evidência da camada OEM.
+
+---
+
+# 💡 9. Hipótese Atual
+
+> **Hipótese de trabalho:** o Sunsix Linux provavelmente foi produzido a partir de uma base Ubuntu 7.04 Feisty Fawn, com a maior parte de sua identidade OEM implementada através de configuração, artwork, seleção de pacotes e ajustes do ambiente gráfico.
+
+Essa hipótese explica por que:
+
+* não foram encontrados grandes conjuntos de pacotes nomeados "sunsix";
+* a arquitetura permanece fortemente compatível com o Ubuntu original;
+* a personalização pode estar distribuída em arquivos genéricos do sistema;
+* componentes Ubuntu podem ter sido modificados sem mudança de nome.
+
+A hipótese será testada através de comparação direta com uma mídia Ubuntu 7.04 i386 original.
+
+---
+
+# 🧪 10. Experimentos Realizados
+
+## Busca por referências explícitas à Sunsix
+
+### Comando
+
+```bash
+unsquashfs -l filesystem.squashfs | grep -i sunsix
+```
+
+### Resultado
+
+Nenhuma referência explícita à palavra `sunsix` foi encontrada nos nomes listados.
+
+### Conclusão
+
+🟡 A customização não parece depender de arquivos explicitamente nomeados com a marca.
+
+---
+
+## Análise da estrutura do sistema
+
+### Resultado
+
+A mídia apresenta uma estrutura compatível com:
+
+* Casper;
+* SquashFS;
+* kernel Linux 2.6.20;
+* GNOME 2.18;
+* Ubiquity;
+* APT / dpkg.
+
+### Conclusão
+
+🟢 O sistema possui forte compatibilidade arquitetural com o Ubuntu 7.04.
+
+---
+
+## Análise do manifesto de pacotes
+
+### Resultado
+
+O inventário apresenta versões e componentes característicos da geração Ubuntu Feisty.
+
+### Conclusão
+
+🟢 A análise reforça a identificação da base Ubuntu 7.04.
+
+---
+
+# 🗺️ 11. Mapa de Evidências
+
+| Descoberta                            | Fonte                          | Estado |
+| ------------------------------------- | ------------------------------ | ------ |
+| Arquitetura i386                      | Mídia analisada                | 🟢     |
+| Ubuntu 7.04                           | Estrutura e pacotes            | 🟢     |
+| GNOME 2.18                            | Componentes instalados         | 🟢     |
+| Kernel 2.6.20                         | Ambiente e pacotes             | 🟢     |
+| Casper                                | Estrutura da ISO               | 🟢     |
+| Ubiquity                              | Sistema analisado              | 🟢     |
+| Customização OEM                      | Branding e contexto da mídia   | 🟡     |
+| Customização por artwork/configuração | Evidências técnicas            | 🟡     |
+| Autor da customização                 | Nenhuma evidência identificada | 🔴     |
+| Data exata da ISO                     | Ainda não determinada          | 🔴     |
+| Outras versões da mídia               | Ainda em investigação          | 🔴     |
+
+---
+
+# 📚 12. Evidências Históricas Externas
+
+Além da análise da mídia, existem evidências históricas de que computadores Sunsix foram comercializados no Brasil com Linux pré-instalado.
+
+Registros e anúncios da época associam computadores da marca a:
+
+* processadores Intel e AMD;
+* memória DDR2;
+* discos rígidos SATA;
+* sistemas Linux.
+
+Também existem relatos que associam explicitamente computadores Sunsix ao **Ubuntu Linux** e ao **Ubuntu 7.04 Feisty Fawn**.
+
+Essas evidências externas reforçam a hipótese de que a mídia preservada represente uma customização OEM baseada no Ubuntu.
+
+> 🔵 Evidências históricas externas são utilizadas como apoio contextual e não substituem evidências encontradas diretamente na mídia.
+
+---
+
+# 🔬 13. Estado Atual da Investigação
+
+## Preservado
+
+* 🟢 ISO original;
+* 🟢 SHA-256 registrado;
+* 🟢 Arquitetura identificada;
+* 🟢 Execução virtual possível.
+
+## Identificado
+
+* 🟢 Ubuntu 7.04 Feisty Fawn;
+* 🟢 GNOME 2.18;
+* 🟢 Kernel 2.6.20 / série 2.6.20-15;
+* 🟢 APT / dpkg;
+* 🟢 Casper;
+* 🟢 Ubiquity.
+
+## Em investigação
+
+* 🟡 Lista completa de pacotes;
+* 🟡 diferenças em relação ao Ubuntu original;
+* 🟡 customizações OEM;
+* 🟡 seleção de pacotes;
+* 🟡 artwork;
+* 🟡 hardware originalmente associado à mídia.
+
+## Procurando
+
+* 🔍 Documentação original;
+* 🔍 outras versões da ISO;
+* 🔍 CD de drivers e extras;
+* 🔍 manuais;
+* 🔍 fotografias;
+* 🔍 registros de computadores Sunsix.
+
+---
+
+# ❓ 14. Perguntas Abertas
+
+Ainda precisamos descobrir:
+
+* Qual é a data exata de criação da ISO?
+* Esta mídia corresponde ao primeiro release ou a uma revisão posterior?
+* Quem produziu a customização OEM?
+* Quais arquivos foram modificados em relação ao Ubuntu original?
+* Existem pacotes próprios com nomes neutros?
+* Existem scripts ou binários exclusivos?
+* Quais computadores receberam essa mídia?
+* Existia mais de uma versão do Sunsix Linux?
+* O CD azul correspondia ao sistema principal?
+* Existia um CD laranja separado para drivers e extras?
+* Existem manuais ou documentos originais?
+* Como a mídia era distribuída junto aos computadores?
+* Quais wallpapers, temas, sons e ícones eram exclusivos?
+
+---
+
+# 🚀 15. Próxima Etapa da Investigação
+
+A próxima etapa prioritária é obter uma mídia de referência:
+
+```text
+Ubuntu 7.04 Desktop i386
+```
+
+A comparação deverá seguir este processo:
+
+```text
+1. Preservar as ISOs originais
+          ↓
+2. Registrar checksums
+          ↓
+3. Extrair as estruturas
+          ↓
+4. Comparar arquivos
+          ↓
+5. Comparar pacotes
+          ↓
+6. Identificar diferenças
+          ↓
+7. Classificar diferenças
+          ↓
+8. Registrar evidências
+```
+
+As diferenças deverão ser classificadas como:
+
+```text
+OEM
+Configuração
+Artwork
+Pacotes
+Hardware
+Instalação
+Indeterminado
+```
+
+O objetivo é responder à principal pergunta da pesquisa:
+
+> **O que transformou o Ubuntu 7.04 em Sunsix Linux?**
+
+---
+
+# 🧰 16. Metodologia de Preservação
+
+A investigação segue os seguintes princípios:
+
+1. Preservar a ISO original antes de qualquer manipulação.
+2. Registrar checksums.
+3. Trabalhar sempre sobre cópias.
+4. Inventariar a estrutura antes de modificar ou extrair conteúdo.
+5. Catalogar bootloader, kernel, initrd e arquivos de configuração.
+6. Extrair o `filesystem.squashfs` para análise.
+7. Registrar versões e nomes dos pacotes.
+8. Comparar a mídia com uma referência Ubuntu original.
+9. Examinar diferenças em `/etc`, `/usr/share`, `/opt` e `/usr/local`.
+10. Investigar GNOME, GDM, X.Org e usplash.
+11. Examinar scripts de instalação e pós-instalação.
+12. Separar fatos, inferências e hipóteses.
+13. Registrar hashes e caminhos dos arquivos relevantes.
+14. Manter todos os resultados reproduzíveis.
+
+---
+
+# 🔒 17. Segurança
+
+O Sunsix Linux é um sistema extremamente antigo.
+
+Ele **não deve ser utilizado como sistema operacional principal nem conectado diretamente à Internet**.
+
+Para análise e experimentação, recomenda-se:
+
+* utilizar máquinas virtuais;
+* manter a rede desativada ou isolada;
+* utilizar snapshots;
+* evitar dados pessoais;
+* manter a ISO original intacta.
+
+> **O objetivo deste projeto é preservação histórica e pesquisa técnica.**
+
+---
+
+# 📚 Referências
+
+* [Repositório Sunsix Linux](https://github.com/gushpat/sunsix-linux)
+* [Ubuntu 7.04 — Old Releases](https://old-releases.ubuntu.com/releases/7.04/)
+* [Ubuntu 7.04 Beta — Informações técnicas históricas](https://ubuntu.com/blog/ubuntu-7-04-beta)
+
+---
+
