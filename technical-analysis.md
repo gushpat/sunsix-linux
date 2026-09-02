@@ -146,7 +146,7 @@ O sistema é extremamente antigo e não deve ser utilizado como sistema operacio
 diretamente à Internet. A experimentação deve ocorrer preferencialmente em máquina virtual, com rede
 desativada ou isolada e snapshots. O objetivo desta pesquisa é histórico e técnico.
 16. Fontes e referências principais
-• Repositório de preservação: https://github.com/igrizzz/sunsix-linux
+• Repositório de preservação: https://github.com/gushpat/sunsix-linux
 • Ubuntu 7.04 — arquivo histórico de releases: https://old-releases.ubuntu.com/releases/7.04/
 • Ubuntu 7.04 Beta / informações técnicas históricas: https://ubuntu.com/blog/ubuntu-7-04-beta
 • Artigos históricos de instalação e uso do Ubuntu 7.04 em comuni
