@@ -15,7 +15,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Preservado-success">
   <img src="https://img.shields.io/badge/Arquitetura-i386-blue">
-  <img src="https://img.shields.io/badge/Base-Ubuntu%207.x-orange">
+  <img src="https://img.shields.io/badge/Base-Ubuntu 7.04 Feisty Fawn-orange">
   <img src="https://img.shields.io/badge/Era-2007%E2%80%932008-lightgrey">
 </p>
 
