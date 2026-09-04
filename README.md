@@ -159,25 +159,28 @@ Capturas do ambiente original serão adicionadas conforme a documentação avan�
 | 🖥️ Ambiente virtual     | ✅ Testável         |
 | 🐧 QEMU                  | ✅ Testável         |
 | 📦 VirtualBox            | ✅ Testável         |
-| 📸 Screenshots           | 🔄 Em documentação |
+| 📸 Screenshots           | ✅ Disponível ([`assets/screenshots/`](assets/screenshots/README.md)) |
 | 📋 Lista de pacotes      | 🔄 Em análise      |
 | 🎨 Customizações OEM     | 🔄 Em investigação |
 | 🖥️ Hardware original    | 🔄 Em investigação |
+| 🛠️ Ferramentas de análise| ✅ Disponível ([`tools/`](tools/)) |
 | 📖 Documentação original | 🔍 Procurando      |
 | 💿 ISO drivers e extras (CD LARANJA)   | 🔍 Procurando      |
 | 🔐 SHA-256               | ✅ Confirmado     |
 
 ---
 
-## 📚 Documentação
+## 📚 Documentação e Ferramentas
 
-A investigação detalhada está sendo organizada separadamente:
+A investigação detalhada está organizada separadamente:
 
-* 📜 [`history.md`](docs/history.md) — contexto histórico
-* 🖥️ [`hardware.md`](docs/hardware.md) — hardware e computadores da época
-* 🔬 [`technical-analysis.md`](docs/technical-analysis.md) — análise da ISO
-* 🛠️ [`troubleshooting.md`](docs/troubleshooting.md) — problemas de compatibilidade
-* 🏛️ [`preservation.md`](docs/preservation.md) — metodologia de preservação
+* 📜 [`history.md`](docs/history.md) — contexto histórico dos PCs populares
+* 🖥️ [`hardware.md`](docs/hardware.md) — especificações de hardware OEM Sunsix
+* 🔬 [`technical-analysis.md`](docs/technical-analysis.md) — dossiê técnico e matriz de pacotes
+* 🛠️ [`troubleshooting.md`](docs/troubleshooting.md) — guia de virtualização e problemas comuns
+* 🏛️ [`preservation.md`](docs/preservation.md) — metodologia de preservação digital
+* 📸 [`assets/screenshots/`](assets/screenshots/README.md) — galeria de imagens do sistema
+* 🧰 [`tools/`](tools/) — scripts de automação em Python (comparação de manifestos e hashing)
 
 ---
 
@@ -194,7 +197,9 @@ Estamos procurando especialmente:
 - 💾 Drivers e CDs de recuperação;
 - 📝 Relatos de quem utilizou o sistema.
 
-Abra uma Issue ou envie uma contribuição para o projeto.
+Utilize nossos templates padronizados para abrir uma contribuição:
+* 📜 [**Enviar um Relato Histórico**](../../issues/new?template=relato_historico.md)
+* 💿 [**Submeter dados de uma Nova Mídia / CD**](../../issues/new?template=nova_midia.md)
 
 > 🔎 Se você encontrar outra ISO, registre sua origem, tamanho e checksum antes de qualquer alteração.
 

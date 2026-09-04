@@ -57,4 +57,3 @@ O objetivo é identificar quais configurações de hardware eram originalmente f
 Computadores Sunsix originais, CDs de drivers, manuais, fotografias, anúncios e outras mídias de instalação podem fornecer evidências adicionais.
 
 **Status:** Pesquisa em andamento.
-
